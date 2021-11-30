@@ -4,13 +4,15 @@ library(scales)
 library(svglite)
 library(data.table)
 data = read.csv("data.csv")
+#Conduct t test
+young_t_test = t.test(data[(1:3), 2], data[(4:6), 2])
+strain_t_test = t.test(data[(1:3), 3], data[(4:6), 3])
 setDT(data)
 str(data)
 dataMelt = melt(data, id.vars = "Sample")
 dataMelt_agg = dataMelt[, .(mean = mean(value), se = sd(value)/.N), by = .(Sample, variable)]
 data_young = dataMelt_agg[(1:2),]
 data_strain = dataMelt_agg[(3:4),]
-data
 ggplot(data_young, aes(x = Sample, y = mean)) +
   geom_bar(stat = "identity", position = "dodge") +
   geom_errorbar(aes(ymax = mean + 1.96*se, 
@@ -18,7 +20,7 @@ ggplot(data_young, aes(x = Sample, y = mean)) +
                     width = 0.2),
                 position = position_dodge(0.9)) +
   labs(y = "Young's Modulus (MPa)") +
-  scale_x_discrete(labels=c("Low PPS", "High PPS")) +
+  scale_x_discrete(labels=c("25 wt% PPS", "30 wt% PPS")) +
   scale_y_continuous(limits = c(0,12), n.breaks = 5) +
   theme_classic() +
   theme(
@@ -38,7 +40,7 @@ ggplot(data_strain, aes(x = Sample, y = mean)) +
                     width = 0.2),
                 position = position_dodge(0.9)) +
   labs(y = "Strain at Break (mm/mm)") +
-  scale_x_discrete(labels=c("Low PPS", "High PPS")) +
+  scale_x_discrete(labels=c("25 wt% PPS", "30 wt% PPS")) +
   scale_y_continuous(limits = c(0,0.70), n.breaks = 10, labels = scales::percent) +
   theme_classic() +
   theme(
