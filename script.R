@@ -30,17 +30,17 @@ ggplot(data_young, aes(x = Sample, y = mean)) +
   geom_signif(y_position = c(12,12,13), xmin = c(1, 2.1,1), 
               xmax = c(1.9,3,3), annotation = c("***","***", "*"),
               tip_length = 0.05) +
-  labs(y = "Young's Modulus (MPa)", x = "Weight Percentage of PPS") +
-  scale_x_discrete(labels=c("25 wt%", "30 wt%", "37 wt%")) +
+  labs(y = "Young's Modulus (MPa)", x = "Weight Percentage of \n PPS") +
+  scale_x_discrete(labels=c("25%", "30%", "37%")) +
   scale_y_continuous(limits = c(0,13.5), n.breaks = 6) +
   theme_classic() +
   theme(
-    axis.text.x = element_text(size=8, color = "black", face = "bold"),
-    axis.text.y = element_text(size=8, color = "black", face = "bold"),
-    axis.title.x = element_text(size=8, color = "black", face = "bold"),
-    axis.title.y = element_text(size=8, color = "black", face = "bold"),
-    legend.title = element_text(size=8, color = "black", face = "bold"),
-    legend.text = element_text(size=8, color = "black", face = "bold"),
+    axis.text.x = element_text(size=10, color = "black", face = "bold"),
+    axis.text.y = element_text(size=10, color = "black", face = "bold"),
+    axis.title.x = element_text(size=10, color = "black", face = "bold"),
+    axis.title.y = element_text(size=10, color = "black", face = "bold"),
+    legend.title = element_text(size=10, color = "black", face = "bold"),
+    legend.text = element_text(size=10, color = "black", face = "bold"),
     legend.position = "none")
 ggsave("young.svg", width = 50, height = 75, units = "mm")
 #Plot ultimate strain
@@ -53,17 +53,17 @@ ggplot(data_strain, aes(x = Sample, y = mean)) +
   geom_signif(y_position = c(0.70,0.8), xmin = c(1, 1), 
               xmax = c(2 ,3), annotation = c("***","*"),
               tip_length = 0.05) +
-  labs(y = "Strain at Break (mm/mm)", x = "Weight Percentage of PPS") +
-  scale_x_discrete(labels=c("25 wt%", "30 wt%", "37 wt%")) +
+  labs(y = "Strain at Break (mm/mm)", x = "Weight Percentage of \n PPS") +
+  scale_x_discrete(labels=c("25%", "30%", "37%")) +
   scale_y_continuous(limits = c(0,0.85), n.breaks = 10, labels = scales::percent_format(accuracy = 1)) +
   theme_classic() +
   theme(
-    axis.text.x = element_text(size=8, color = "black", face = "bold"),
-    axis.text.y = element_text(size=8, color = "black", face = "bold"),
-    axis.title.x = element_text(size=8, color = "black", face = "bold"),
-    axis.title.y = element_text(size=8, color = "black", face = "bold"),
-    legend.title = element_text(size=8, color = "black", face = "bold"),
-    legend.text = element_text(size=8, color = "black", face = "bold"),
+    axis.text.x = element_text(size=10, color = "black", face = "bold"),
+    axis.text.y = element_text(size=10, color = "black", face = "bold"),
+    axis.title.x = element_text(size=10, color = "black", face = "bold"),
+    axis.title.y = element_text(size=10, color = "black", face = "bold"),
+    legend.title = element_text(size=10, color = "black", face = "bold"),
+    legend.text = element_text(size=10, color = "black", face = "bold"),
     legend.position = "none")
 ggsave("strain.svg", width = 50, height = 75, units = "mm")
 #Plot ultimate tensile stress
@@ -76,16 +76,16 @@ ggplot(data_uts, aes(x = Sample, y = mean)) +
   geom_signif(y_position = c(3.5), xmin = c(2), 
               xmax = c(3), annotation = c("*"),
               tip_length = 0.05) +
-  labs(y = "Ultimate Tensile Stress (MPa)", x = "Weight Percentage of PPS") +
-  scale_x_discrete(labels=c("25 wt%", "30 wt%", "37 wt%")) +
+  labs(y = "Ultimate Tensile Stress (MPa)", x = "Weight Percentage of \n PPS") +
+  scale_x_discrete(labels=c("25%", "30%", "37%")) +
   scale_y_continuous(limits = c(0,4), n.breaks = 5) +
   theme_classic() +
   theme(
-    axis.text.x = element_text(size=8, color = "black", face = "bold"),
-    axis.text.y = element_text(size=8, color = "black", face = "bold"),
-    axis.title.x = element_text(size=8, color = "black", face = "bold"),
-    axis.title.y = element_text(size=8, color = "black", face = "bold"),
-    legend.title = element_text(size=8, color = "black", face = "bold"),
-    legend.text = element_text(size=8, color = "black", face = "bold"),
+    axis.text.x = element_text(size=10, color = "black", face = "bold"),
+    axis.text.y = element_text(size=10, color = "black", face = "bold"),
+    axis.title.x = element_text(size=10, color = "black", face = "bold"),
+    axis.title.y = element_text(size=10, color = "black", face = "bold"),
+    legend.title = element_text(size=10, color = "black", face = "bold"),
+    legend.text = element_text(size=10, color = "black", face = "bold"),
     legend.position = "none")
 ggsave("uts.svg", width = 50, height = 75, units = "mm")
